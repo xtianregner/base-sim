@@ -1,0 +1,109 @@
+# Entorno virtual de Python
+.venv/
+venv/
+env/
+.env/
+ENV/
+
+# Archivos de Python compilados
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Base de datos SQLite (desarrollo)
+*.sqlite3
+db.sqlite3
+
+# Variables de entorno (contiene secrets)
+.env
+.env.local
+.env.*.local
+*.env
+
+# Archivos de IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Archivos de sistema
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
+pip-log.txt
+
+# Tests y coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Archivos de distribución
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+*.manifest
+*.spec
+MANIFEST
+
+# Instalación de pip
+pip-wheel-metadata/
+
+# pyenv
+.python-version
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Archivos temporales
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+
+# Node (si agregas frontend)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Archivos de caché
+.cache/
+*.cache
+
+# Static files collected (producción)
+staticfiles/
+static_collected/
+media/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Secrets y configuración local
+secrets/
+*.pem
+*.key
+
+# Docker
+*.log
