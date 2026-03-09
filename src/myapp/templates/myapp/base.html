@@ -4,32 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}My Django App{% endblock %}</title>
+    <title>{% block title %}Clean Blog - Django{% endblock %}</title>
     
-    <!-- Tu CSS del template descargado va aquí -->
-    <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Clean Blog CSS -->
+    <link rel="stylesheet" href="{% static 'myapp/css/clean-blog.css' %}">
     
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <nav>
-        <a href="{% url 'index' %}">Inicio</a>
-        <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'contact' %}">Contact</a>
+    <!-- Navigation -->
+    <nav id="mainNav">
+        <div class="nav-container">
+            <a class="navbar-brand" href="{% url 'index' %}">Clean Blog</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="{% url 'index' %}" {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %}>Home</a></li>
+                <li><a href="{% url 'about' %}" {% if request.resolver_match.url_name == 'about' %}class="active"{% endif %}>About</a></li>
+                <li><a href="{% url 'contact' %}" {% if request.resolver_match.url_name == 'contact' %}class="active"{% endif %}>Contact</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}" {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %}>Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
     </nav>
 
+    <!-- Page Header -->
+    {% block header %}
+    <header class="masthead" style="background-image: url('{% block header_image %}https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1920{% endblock %}');">
+        <div class="masthead-content">
+            <h1>{% block header_title %}Clean Blog{% endblock %}</h1>
+            <p class="subheading">{% block header_subtitle %}A Blog Theme by Start Bootstrap - Adapted for Django{% endblock %}</p>
+            {% block header_meta %}{% endblock %}
+        </div>
+    </header>
+    {% endblock %}
+
+    <!-- Main Content -->
     <main>
+        <!-- Messages -->
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        
         {% block content %}
         <!-- El contenido de cada página va aquí -->
         {% endblock %}
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 My Django App</p>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="copyright">Copyright &copy; Clean Blog Django {% now "Y" %}</p>
+        </div>
     </footer>
 
-    <!-- Tu JS del template descargado va aquí -->
-    <script src="{% static 'myapp/js/main.js' %}"></script>
+    <!-- Clean Blog JS -->
+    <script src="{% static 'myapp/js/clean-blog.js' %}"></script>
     
     {% block extra_js %}{% endblock %}
 </body>

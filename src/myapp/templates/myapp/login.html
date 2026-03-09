@@ -1,0 +1,43 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Login - Clean Blog Django{% endblock %}
+
+{% block header_image %}https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920{% endblock %}
+{% block header_title %}Login{% endblock %}
+{% block header_subtitle %}Sign in to access your account{% endblock %}
+
+{% block content %}
+<div class="contact-form">
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        
+        {% if form.errors %}
+        <div class="alert alert-error">
+            <p>Your username and password didn't match. Please try again.</p>
+        </div>
+        {% endif %}
+        
+        {% if next %}
+        <div class="alert alert-info">
+            <p>Please login to see this page.</p>
+        </div>
+        {% endif %}
+        
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username..." required autofocus>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password..." required>
+        </div>
+        
+        <input type="hidden" name="next" value="{{ next }}">
+        
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg">Login</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
