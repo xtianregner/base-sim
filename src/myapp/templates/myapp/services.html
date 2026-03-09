@@ -1,0 +1,84 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Certificados ESA - Puppy Fly Time{% endblock %}
+
+{% block header_image %}https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1920{% endblock %}
+{% block header_title %}Certificados ESA{% endblock %}
+{% block header_subtitle %}Documentacion oficial para que tu mascota te acompane siempre{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div style="max-width:800px;margin:3rem auto;padding:2rem;background:#f9f3e8;border-left:4px solid #c8a96e;border-radius:4px;">
+        <h3 style="font-family:'Lora',serif;">Que es un ESA?</h3>
+        <p>Un Animal de Apoyo Emocional proporciona beneficios terapeuticos. Con tu carta ESA puedes:</p>
+        <ul style="margin-top:1rem;line-height:2;">
+            <li>Vivir con tu mascota sin restricciones</li>
+            <li>Evitar depositos adicionales en alquileres</li>
+            <li>Viajar con tu mascota</li>
+        </ul>
+    </div>
+
+    <h2 style="font-family:'Lora',serif;text-align:center;margin:2rem 0;">Nuestros Paquetes</h2>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-bottom:3rem;">
+
+        <div class="pft-pricing-card">
+            <div class="pft-pricing-header">
+                <h4>Basico</h4>
+                <div class="pft-price">$99 <span>USD</span></div>
+            </div>
+            <ul class="pft-pricing-list">
+                <li>Carta ESA oficial</li>
+                <li>Evaluacion profesional</li>
+                <li>Entrega digital 24-48h</li>
+                <li>Valido por 1 ano</li>
+                <li style="color:#aaa;">Sin kit</li>
+                <li style="color:#aaa;">Sin copia fisica</li>
+            </ul>
+            <div style="padding:0 1.5rem 1.5rem;">
+                <a href="{% url 'contact' %}" class="btn-pft-outline">Seleccionar</a>
+            </div>
+        </div>
+
+        <div class="pft-pricing-card pft-pricing-featured">
+            <div class="pft-pricing-badge">Mas Popular</div>
+            <div class="pft-pricing-header">
+                <h4>Estandar</h4>
+                <div class="pft-price">$149 <span>USD</span></div>
+            </div>
+            <ul class="pft-pricing-list">
+                <li>Carta ESA oficial</li>
+                <li>Evaluacion profesional</li>
+                <li>Entrega digital 24-48h</li>
+                <li>Valido por 1 ano</li>
+                <li>Kit de identificacion</li>
+                <li>Copia fisica enviada</li>
+            </ul>
+            <div style="padding:0 1.5rem 1.5rem;text-align:center;">
+                <a href="{% url 'contact' %}" class="btn-pft">Seleccionar</a>
+            </div>
+        </div>
+
+        <div class="pft-pricing-card">
+            <div class="pft-pricing-header">
+                <h4>Premium</h4>
+                <div class="pft-price">$199 <span>USD</span></div>
+            </div>
+            <ul class="pft-pricing-list">
+                <li>Carta ESA oficial</li>
+                <li>Evaluacion profesional</li>
+                <li>Entrega digital en 24h</li>
+                <li>Valido por 2 anos</li>
+                <li>Kit premium</li>
+                <li>Soporte 24/7</li>
+            </ul>
+            <div style="padding:0 1.5rem 1.5rem;">
+                <a href="{% url 'contact' %}" class="btn-pft-outline">Seleccionar</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

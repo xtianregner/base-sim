@@ -1,23 +1,73 @@
 {% extends 'myapp/base.html' %}
 
-{% block title %}About - Clean Blog Django{% endblock %}
+{% block title %}Nosotros - Puppy Fly Time{% endblock %}
 
-{% block header_image %}https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=1920{% endblock %}
-{% block header_title %}About Me{% endblock %}
-{% block header_subtitle %}This is what I do.{% endblock %}
+{% block header_image %}https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1920{% endblock %}
+{% block header_title %}Nuestra Historia{% endblock %}
+{% block header_subtitle %}Conectando familias con sus companeros peludos desde 2020{% endblock %}
 
 {% block content %}
-<article class="page-content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-    
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-    
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
-    
-    <h3 class="mt-4">Our Mission</h3>
-    <p>We believe in creating amazing content and sharing knowledge with the world. Our team is dedicated to providing valuable insights and information through our articles.</p>
-    
-    <h3 class="mt-4">Our Team</h3>
-    <p>We are a passionate group of developers, writers, and designers working together to bring you the best content possible. Each member brings unique skills and perspectives to our blog.</p>
-</article>
+<div class="container">
+
+    <div style="max-width:800px; margin:3rem auto;">
+        <h2 style="font-family:'Lora',serif; margin-bottom:1.5rem;">Por que Puppy Fly Time?</h2>
+        <p style="font-size:1.1rem; line-height:1.8; color:#555;">
+            Nacimos de la frustracion de un dueno de mascota que no podia viajar con su mejor amigo.
+            Entendemos el vinculo unico e irrompible entre las personas y sus mascotas.
+        </p>
+        <p style="font-size:1.1rem; line-height:1.8; color:#555;">
+            En <strong>Puppy Fly Time</strong>, creemos que ninguna familia deberia separarse de sus
+            companeros peludos. Trabajamos para proporcionar documentacion legal que permita
+            a las mascotas acompanar a sus duenos en todo momento.
+        </p>
+    </div>
+
+    <hr>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1.5rem; padding:2rem 0; text-align:center;">
+        <div class="pft-stat"><div class="pft-stat-num">5,000+</div><div>Certificados Emitidos</div></div>
+        <div class="pft-stat"><div class="pft-stat-num">98%</div><div>Clientes Satisfechos</div></div>
+        <div class="pft-stat"><div class="pft-stat-num">24h</div><div>Tiempo Promedio</div></div>
+        <div class="pft-stat"><div class="pft-stat-num">15+</div><div>Paises Atendidos</div></div>
+    </div>
+
+    <hr>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; padding:2rem 0;">
+        <div class="pft-card">
+            <div class="pft-card-icon">🎯</div>
+            <h4>Nuestra Mision</h4>
+            <p>Facilitar la vida de las familias con mascotas, proporcionando certificacion ESA accesible, rapida y 100% legal.</p>
+        </div>
+        <div class="pft-card">
+            <div class="pft-card-icon">👁️</div>
+            <h4>Nuestra Vision</h4>
+            <p>Ser lideres en certificacion de mascotas de apoyo emocional en Latinoamerica, reconocidos por integridad y amor.</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div style="padding:2rem 0 3rem; text-align:center;">
+        <h2 style="font-family:'Lora',serif; margin-bottom:2rem;">Nuestros Valores</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1.5rem;">
+            <div class="pft-step">
+                <div style="font-size:2.5rem; margin-bottom:0.5rem;">❤️</div>
+                <h5>Amor por los Animales</h5>
+                <p>Cada mascota merece amor y compania incondicional.</p>
+            </div>
+            <div class="pft-step">
+                <div style="font-size:2.5rem; margin-bottom:0.5rem;">⚖️</div>
+                <h5>Integridad</h5>
+                <p>Operamos con honestidad y transparencia total.</p>
+            </div>
+            <div class="pft-step">
+                <div style="font-size:2.5rem; margin-bottom:0.5rem;">🤝</div>
+                <h5>Compromiso</h5>
+                <p>Nos comprometemos con cada cliente hasta el final.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
 {% endblock %}

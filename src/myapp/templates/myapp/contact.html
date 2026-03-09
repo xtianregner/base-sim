@@ -1,41 +1,81 @@
 {% extends 'myapp/base.html' %}
 
-{% block title %}Contact - Clean Blog Django{% endblock %}
+{% block title %}Contacto - Puppy Fly Time{% endblock %}
 
-{% block header_image %}https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920{% endblock %}
-{% block header_title %}Contact Me{% endblock %}
-{% block header_subtitle %}Have questions? I have answers.{% endblock %}
+{% block header_image %}https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=1920{% endblock %}
+{% block header_title %}Contactanos{% endblock %}
+{% block header_subtitle %}Tienes preguntas? Estamos aqui para ayudarte{% endblock %}
 
 {% block content %}
-<div class="contact-form">
-    <p class="text-center mb-4">Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
-    
-    <form method="POST" action="{% url 'contact' %}">
-        {% csrf_token %}
-        
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name..." required>
+<div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; padding:3rem 0; max-width:900px; margin:0 auto;">
+
+        <div>
+            <h3 style="font-family:'Lora',serif; margin-bottom:1.5rem;">Envianos un mensaje</h3>
+            <form method="POST" action="{% url 'contact' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Nombre completo *</label>
+                    <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electronico *</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefono</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+52 555 123 4567">
+                </div>
+                <div class="form-group">
+                    <label for="pet_name">Nombre de tu mascota</label>
+                    <input type="text" id="pet_name" name="pet_name" placeholder="Como se llama tu peludo?">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Asunto *</label>
+                    <select id="subject" name="subject" required style="width:100%;padding:0.75rem;border:1px solid #ddd;border-radius:4px;font-size:1rem;">
+                        <option value="">Selecciona una opcion</option>
+                        <option value="certificado">Informacion sobre certificados</option>
+                        <option value="precio">Precios y paquetes</option>
+                        <option value="proceso">Proceso de evaluacion</option>
+                        <option value="soporte">Soporte tecnico</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje *</label>
+                    <textarea id="message" name="message" placeholder="Cuentanos como podemos ayudarte..." required></textarea>
+                </div>
+                <button type="submit" class="btn-pft" style="width:100%;">
+                    <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                </button>
+            </form>
         </div>
-        
-        <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email..." required>
+
+        <div>
+            <h3 style="font-family:'Lora',serif; margin-bottom:1.5rem;">Informacion de Contacto</h3>
+            <div class="pft-contact-item">
+                <span>📧</span>
+                <div><strong>Correo Electronico</strong><p>info@puppyflytime.com</p></div>
+            </div>
+            <div class="pft-contact-item">
+                <span>📞</span>
+                <div><strong>Telefono</strong><p>+1 (555) 123-4567</p><p style="font-size:0.85rem;color:#888;">Lun - Vie: 9:00 AM - 6:00 PM</p></div>
+            </div>
+            <div class="pft-contact-item">
+                <span>💬</span>
+                <div><strong>WhatsApp</strong><p>+52 55 1234 5678</p></div>
+            </div>
+            <div class="pft-contact-item">
+                <span>📍</span>
+                <div><strong>Ubicacion</strong><p>Atencion 100% en linea</p></div>
+            </div>
         </div>
-        
-        <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number...">
-        </div>
-        
-        <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Enter your message here..." required></textarea>
-        </div>
-        
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary btn-lg">Send</button>
-        </div>
-    </form>
+
+    </div>
 </div>
+<style>
+@media (max-width:650px) {
+    div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
+}
+</style>
 {% endblock %}

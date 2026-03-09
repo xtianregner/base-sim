@@ -1,16 +1,16 @@
 from django.shortcuts import render, redirect
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 
-def home(request):
-    return render(request, 'myapp/home.html')
-
-
 def index(request):
     return render(request, 'myapp/index.html')
+
+
+def services(request):
+    return render(request, 'myapp/services.html')
 
 
 def about(request):
@@ -19,21 +19,17 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
-        # Aquí puedes procesar el formulario
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
-        
-        # Por ahora solo mostramos un mensaje de éxito
-        messages.success(request, f'Thank you {name}! Your message has been sent.')
+        messages.success(request, f'¡Gracias {name}! Tu mensaje ha sido enviado. Te contactaremos pronto.')
         return redirect('contact')
-    
     return render(request, 'myapp/contact.html')
 
 
 def api_data(request):
     data = {
-        'message': 'Hello, World!',
+        'app': 'Puppy Fly Time',
         'status': 'success'
     }
     return JsonResponse(data)

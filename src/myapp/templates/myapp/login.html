@@ -1,6 +1,47 @@
 {% extends 'myapp/base.html' %}
 
-{% block title %}Login - Clean Blog Django{% endblock %}
+{% block title %}Iniciar Sesión - Puppy Fly Time{% endblock %}
+
+{% block header_image %}https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1920{% endblock %}
+{% block header_title %}Iniciar Sesión 🐾{% endblock %}
+{% block header_subtitle %}Accede a tu cuenta para gestionar tus certificados{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div style="max-width:450px; margin:3rem auto; background:#fff; padding:2.5rem; border-radius:8px; box-shadow:0 2px 15px rgba(0,0,0,0.1);">
+
+        {% if messages %}
+            {% for message in messages %}
+            <div style="padding:1rem; margin-bottom:1rem; border-radius:4px;
+                background:{% if message.tags == 'success' %}#d4edda{% elif message.tags == 'error' %}#f8d7da{% else %}#cce5ff{% endif %};
+                color:{% if message.tags == 'success' %}#155724{% elif message.tags == 'error' %}#721c24{% else %}#004085{% endif %};">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
+
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" name="username" placeholder="Tu usuario" required autofocus>
+            </div>
+            <div class="form-group">
+                <label for="password">Contrasena</label>
+                <input type="password" id="password" name="password" placeholder="Tu contrasena" required>
+            </div>
+
+            <button type="submit" class="btn-pft" style="width:100%; margin-top:1rem;">
+                <i class="fas fa-sign-in-alt"></i> Iniciar Sesion
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block title %}Iniciar Sesion - Puppy Fly Time{% endblock %}
 
 {% block header_image %}https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920{% endblock %}
 {% block header_title %}Login{% endblock %}

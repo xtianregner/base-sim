@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Clean Blog - Django{% endblock %}</title>
+    <title>{% block title %}Puppy Fly Time{% endblock %}</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
@@ -21,18 +21,19 @@
     <!-- Navigation -->
     <nav id="mainNav">
         <div class="nav-container">
-            <a class="navbar-brand" href="{% url 'index' %}">Clean Blog</a>
+            <a class="navbar-brand" href="{% url 'index' %}">🐾 Puppy Fly Time</a>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links">
-                <li><a href="{% url 'index' %}" {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %}>Home</a></li>
-                <li><a href="{% url 'about' %}" {% if request.resolver_match.url_name == 'about' %}class="active"{% endif %}>About</a></li>
-                <li><a href="{% url 'contact' %}" {% if request.resolver_match.url_name == 'contact' %}class="active"{% endif %}>Contact</a></li>
+                <li><a href="{% url 'index' %}" {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %}>Inicio</a></li>
+                <li><a href="{% url 'services' %}" {% if request.resolver_match.url_name == 'services' %}class="active"{% endif %}>Certificados ESA</a></li>
+                <li><a href="{% url 'about' %}" {% if request.resolver_match.url_name == 'about' %}class="active"{% endif %}>Nosotros</a></li>
+                <li><a href="{% url 'contact' %}" {% if request.resolver_match.url_name == 'contact' %}class="active"{% endif %}>Contacto</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
                 {% else %}
-                <li><a href="{% url 'login' %}" {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %}>Login</a></li>
+                <li><a href="{% url 'login' %}" {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %}><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
                 {% endif %}
             </ul>
         </div>
@@ -40,10 +41,10 @@
 
     <!-- Page Header -->
     {% block header %}
-    <header class="masthead" style="background-image: url('{% block header_image %}https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1920{% endblock %}');">
+    <header class="masthead" style="background-image: url('{% block header_image %}https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1920{% endblock %}');">
         <div class="masthead-content">
-            <h1>{% block header_title %}Clean Blog{% endblock %}</h1>
-            <p class="subheading">{% block header_subtitle %}A Blog Theme by Start Bootstrap - Adapted for Django{% endblock %}</p>
+            <h1>{% block header_title %}Puppy Fly Time{% endblock %}</h1>
+            <p class="subheading">{% block header_subtitle %}Tu compañero peludo merece volar contigo 🐕✈️{% endblock %}</p>
             {% block header_meta %}{% endblock %}
         </div>
     </header>
@@ -73,7 +74,7 @@
                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
-            <p class="copyright">Copyright &copy; Clean Blog Django {% now "Y" %}</p>
+            <p class="copyright">🐾 Copyright &copy; Puppy Fly Time {% now "Y" %}</p>
         </div>
     </footer>
 
