@@ -1,9 +1,6 @@
 [variables]
 NIXPACKS_PYTHON_VERSION = "3.10"
 
-[phases.setup]
-nixPkgs = ["python310", "gcc"]
-
 [phases.install]
 cmds = ["pip install -r requirements.txt"]
 
@@ -14,4 +11,4 @@ cmds = [
 ]
 
 [start]
-cmd = "cd src && gunicorn myproject.wsgi --bind 0.0.0.0:$PORT --workers 2 --timeout 120"
+cmd = "bash start.sh"
