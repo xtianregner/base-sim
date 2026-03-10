@@ -9,6 +9,3 @@ cmds = [
   "cd src && python manage.py collectstatic --noinput",
   "cd src && python manage.py migrate"
 ]
-
-[start]
-cmd = "bash start.sh"
